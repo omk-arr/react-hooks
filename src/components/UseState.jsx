@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 function UseState(props) {
   const [counter, setCounter] = useState(0);
-  counterOp = (val) => {
+  let counterOp = (val) => {
     if (val === 1) setCounter(counter + 1);
     else if (val === 0 && counter > 0) setCounter(counter - 1);
     else setCounter(0);
