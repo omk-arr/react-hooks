@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UseState from "./components/UseState";
 import UseEffect from "./components/UseEffect";
 import { ThemeContext } from "./components/ThemeContext";
+import UseReducer from "./components/UseReducer";
 export function App(props) {
   const [theme, setTheme] = useState('light')
   function toggleTheme (){
@@ -10,7 +11,8 @@ export function App(props) {
 
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
-      <UseEffect />
+      {/* <UseEffect /> */}
+      <UseReducer/>
     </ThemeContext.Provider>
   )
 }
