@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "./ThemeContext";
+
 
 function UseEffect() {
   // 1. useEffect to run on every render
@@ -52,11 +54,17 @@ function UseEffect() {
     }
     fetchPost();
   }, []);
+
+  // Theme Context
+  const {theme, toggleTheme} = useContext(ThemeContext)
   return (
-    <div>
+    <div style={{backgroundColor: theme === 'light' ? 'white' : 'black', color: theme === 'light' ? 'black' : 'white'}}>
+      <button onClick={toggleTheme}>Change theme</button>
       <h3>useEffect Hook</h3>
       <h4>{count}</h4>
       <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => count > 0  && setCount(count - 1)}>Decrement</button>
+      <button onClick={() => setCount(0)}>Reset</button>
       <h4>Counter that is increased every second</h4>
       <h4>{secondCounter}</h4>
 
